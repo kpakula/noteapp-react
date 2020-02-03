@@ -10,7 +10,6 @@ function App() {
       <div className="App">
         <Switch>
           <Route exact path="/">{/* <Home /> */}</Route>
-          <Route exact path="/about">{/* <About /> */}</Route>
           <Route exact path="/users"><AllUser/></Route>
           <Route component={NoMatch}></Route>
         </Switch>
