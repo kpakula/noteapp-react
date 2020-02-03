@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import axios from "axios";
-import usersURL from "./../../Api/api.js"
 
 export default class AllUser extends Component {
     state = {
@@ -8,16 +7,34 @@ export default class AllUser extends Component {
     };
 
     componentDidMount() {
-        axios.get(usersURL).then(res => {
+        axios.get("http://localhost:8080/users")
+        .then(res => {
             console.log(res.data)
-            this.setState({ allUsers: res.data });
+
+
+            const items = res.data.map((user) => (
+                <li key={user.id}>
+                    {user.login}
+                </li>
+            ))
+
+            this.setState({ allUsers: items });
+        })
+        .catch(err => {
+            console.log(err)
         })
     }
+
+    items = this.state.allUsers.map((user) => (
+        <li key={user.id}>
+            {user.login}
+        </li>
+    ))
 
     render() {
         return (
             <div>
-                jjjjj
+                {this.state.allUsers}
             </div>
         )
     }
