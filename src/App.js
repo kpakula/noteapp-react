@@ -11,6 +11,8 @@ function App() {
       <div className="App">
         <Switch>
           <Route exact path="/">{/* <Home /> */}</Route>
+          <Route exact path="/signin">{/* <Home /> */}</Route>
+          <Route exact path="/signup">{/* <Home /> */}</Route>
           <Route exact path="/users"><AllUser/></Route>
           <Route path="/users/:id" component={specificUser}></Route>
           <Route component={NoMatch}></Route>
