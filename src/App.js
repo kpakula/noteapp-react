@@ -7,6 +7,9 @@ import specificUser from "./components/specificUser/specificUser";
 import Login from "./components/login/Login";
 import Register from "./components/register/Register";
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+
 function App() {
   return (
     <Router>
