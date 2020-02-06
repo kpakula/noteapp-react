@@ -1,5 +1,10 @@
 .leftSide {
-    background-color: blue;
+    color: white;
+    /* background-color: #5f5f5; */
+    max-width: 370px !important;
+    max-height: 300px !important;
+    min-width: 320px !important;
+    /* border: 1px solid blue; */
 }
 
 .rightSide {
