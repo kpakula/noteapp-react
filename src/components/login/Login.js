@@ -1,6 +1,7 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import sha256 from "js-sha256";
 
 export default class Login extends React.Component {
   constructor(props) {
@@ -15,6 +16,7 @@ export default class Login extends React.Component {
     console.log(
       `Login: ${this.state.login} \n Password: ${this.state.password}`
     );
+    console.log(sha256(this.state.password))
     event.preventDefault();
   };
 
