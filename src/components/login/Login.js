@@ -3,7 +3,6 @@ import { Col, Row } from "react-bootstrap";
 import { Link, withRouter, Redirect } from "react-router-dom";
 import sha256 from "js-sha256";
 import axios from "axios";
-import history from "../../Api/history";
 
 class Login extends React.Component {
   constructor(props) {

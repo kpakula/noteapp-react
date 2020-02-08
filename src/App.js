@@ -14,6 +14,7 @@ import Register from "./components/register/Register";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container } from "react-bootstrap";
+import HomeView from "./components/HomeView/HomeView";
 
 function App(props) {
   return (
@@ -33,7 +34,7 @@ function App(props) {
             <AllUser />
           </Route>
           <Route path="/users/:id" component={specificUser}></Route>
-          <Route path="/home"></Route>
+          <Route path="/home"><HomeView/></Route>
           <Route component={NoMatch}></Route>
         </Switch>
       </Container>
