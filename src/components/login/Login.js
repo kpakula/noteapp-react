@@ -2,7 +2,7 @@ import React from "react";
 import { Col, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import sha256 from "js-sha256";
-
+import axios from "axios";
 export default class Login extends React.Component {
   constructor(props) {
     super(props);
@@ -13,10 +13,18 @@ export default class Login extends React.Component {
   }
 
   handleSubmit = event => {
-    console.log(
-      `Login: ${this.state.login} \n Password: ${this.state.password}`
-    );
-    console.log(sha256(this.state.password))
+    console.log(sha256(this.state.password).toLowerCase())
+    axios.post("http://localhost:8080/signin", {
+        login: this.state.login,
+        password: (sha256(this.state.password)).toLowerCase()
+    })
+    .then(res => {
+        console.log(res.data)
+    })
+    .catch(err => {
+        console.log(err)
+    })
+
     event.preventDefault();
   };
 
@@ -36,7 +44,7 @@ export default class Login extends React.Component {
             <div className="form-group">
               <label htmlFor="exampleInputLogin">Login</label>
               <input
-                type="email"
+                type="text"
                 className="form-control mb-0"
                 id="exampleInputLogin"
                 placeholder="Enter login"
