@@ -15,26 +15,27 @@ import Register from "./components/register/Register";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container } from "react-bootstrap";
 
-function App() {
+function App(props) {
   return (
     <Router>
       <Container className="App h-100" fluid={true}>
-          <Switch>
-            <Route exact path="/">
-              <Redirect to="/signin" />
-            </Route>
-            <Route exact path="/signin">
-              <Login />
-            </Route>
-            <Route exact path="/signup">
-              <Register />
-            </Route>
-            <Route exact path="/users">
-              <AllUser />
-            </Route>
-            <Route path="/users/:id" component={specificUser}></Route>
-            <Route component={NoMatch}></Route>
-          </Switch>
+        <Switch>
+          <Route exact path="/">
+            <Redirect to="/signin" />
+          </Route>
+          <Route exact path="/signin">
+            <Login />
+          </Route>
+          <Route exact path="/signup">
+            <Register />
+          </Route>
+          <Route exact path="/users">
+            <AllUser />
+          </Route>
+          <Route path="/users/:id" component={specificUser}></Route>
+          <Route path="/home"></Route>
+          <Route component={NoMatch}></Route>
+        </Switch>
       </Container>
     </Router>
   );

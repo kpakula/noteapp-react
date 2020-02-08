@@ -1,29 +1,38 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, withRouter, Redirect } from "react-router-dom";
 import sha256 from "js-sha256";
 import axios from "axios";
-export default class Login extends React.Component {
+import history from "../../Api/history";
+
+class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       login: "",
-      password: ""
+      password: "",
+      isValid: false
     };
   }
 
   handleSubmit = event => {
-    console.log(sha256(this.state.password).toLowerCase())
-    axios.post("http://localhost:8080/signin", {
+    axios
+      .post("http://localhost:8080/signin", {
         login: this.state.login,
-        password: (sha256(this.state.password)).toLowerCase()
-    })
-    .then(res => {
-        console.log(res.data)
-    })
-    .catch(err => {
-        console.log(err)
-    })
+        password: sha256(this.state.password).toLowerCase()
+      })
+      .then(res => {
+        if (res.data) {
+          console.log("zalogowano");
+
+          this.setState({isValid: true})
+        } else {
+          console.log("niezalogowano");
+        }
+      })
+      .catch(err => {
+        console.log(err);
+      });
 
     event.preventDefault();
   };
@@ -64,9 +73,9 @@ export default class Login extends React.Component {
               />
             </div>
             <small id="emailHelp" className="form-text text-light">
-              You don't have account?{" "}
+              You don't have account?
               <Link className="text-dark" to="/signup">
-                <b>Sign up</b>
+                <b> Sign up</b>
               </Link>
             </small>
 
@@ -74,8 +83,12 @@ export default class Login extends React.Component {
               Login
             </button>
           </form>
+
+          {this.state.isValid && <Redirect to='/home'/>}
         </Col>
       </Row>
     );
   }
 }
+
+export default withRouter(Login);
