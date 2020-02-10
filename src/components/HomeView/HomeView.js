@@ -1,23 +1,14 @@
-import React from 'react'
+import React from "react";
+import { Col, Row, Container } from "react-bootstrap";
+import "./HomeView.css";
+import Note from "./notes/Note";
 
 export default function HomeView() {
-    return (
-        <div id="notesWrapper">
-            <div className="tc-notes">
-                <div className="tc-note">
-                    <div className="tc-note-header">
-
-                        
-                    </div>
-                    <div className="tc-note-title">
-                        Title goes here
-                    </div>
-
-                    <div className="tc-note-body">
-                        Body goes here
-                    </div>
-                </div>
-            </div>
-        </div>
-    )
+  return (
+    <div class="card-deck justify-content-center mt-5">
+      <Col xl={2} lg={3} md={4} sm={6} xs={12}>
+        <Note />
+      </Col>
+    </div>
+  );
 }

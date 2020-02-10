@@ -1,0 +1,12 @@
+.customCard {
+
+    /* min-width: 16rem; */
+    max-width: 18rem;
+    position: relative;
+}
+
+.note-close {
+    position: absolute;
+    top: 5px;
+    right: 11px;;
+}
