@@ -1,7 +1,8 @@
 .customCard {
 
     /* min-width: 16rem; */
-    max-width: 18rem;
+    min-width: 12rem;
+    max-width: 20rem;
     position: relative;
 }
 
