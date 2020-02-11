@@ -4,10 +4,21 @@
     min-width: 12rem;
     max-width: 20rem;
     position: relative;
+    transition: all 0.5s;
+}
+
+.customCard:hover {
+    width:300px;
+    height: 300px;
+    z-index: 1000;
+    cursor: pointer;
+    background: black !important;
+    
 }
 
 .note-close {
     position: absolute;
     top: 5px;
-    right: 11px;;
+    right: 11px;
+
 }
