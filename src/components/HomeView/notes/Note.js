@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Note() {
   return (
-    <div class="card text-white bg-warning mb-3 customCard mx-auto">
+    <div class="card text-white bg-warning mb-3 customCard mx-auto text-secondary">
       <div className="note-header">
         <span className="note-close">
           <i className="fas fa-times"></i>

@@ -13,7 +13,7 @@ export default class HomeView extends Component {
   render() {
     return (
       <div class="card-deck justify-content-center mt-5">
-        {/* <Col xl={2} lg={3} md={4} sm={6} xs={12}>
+        <Col xl={2} lg={3} md={4} sm={6} xs={12}>
         <Note />
       </Col>
       <Col xl={2} lg={3} md={4} sm={6} xs={12}>
@@ -27,7 +27,7 @@ export default class HomeView extends Component {
       </Col>
       <Col xl={2} lg={3} md={4} sm={6} xs={12}>
         <Note />
-      </Col> */}
+      </Col>
       </div>
     );
   }

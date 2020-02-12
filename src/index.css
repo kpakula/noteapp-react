@@ -12,6 +12,7 @@ body {
 html, body, #root, #root>div {
   height: 100%;
   /* background: rgb(35,27,181); */
+  background: rgba(0,212,255,1);
   background: linear-gradient(90deg, rgba(35,27,181,1) 0%, rgba(4,117,193,1) 46%, rgba(0,212,255,1) 100%, rgba(9,9,121,1) 100%);
 }
 
