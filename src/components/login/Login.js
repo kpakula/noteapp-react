@@ -23,7 +23,7 @@ class Login extends React.Component {
       .then(res => {
         if (res.data) {
           console.log("zalogowano");
-
+          localStorage.setItem("login", this.state.login)
           this.setState({isValid: true})
         } else {
           console.log("niezalogowano");
