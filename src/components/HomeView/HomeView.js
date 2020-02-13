@@ -40,22 +40,6 @@ export default class HomeView extends Component {
             <Button className="btn btn-secondary mt-5" >Add new</Button>
         </div>
         <div className="card-deck justify-content-center mt-5" >
-          {/* <Col xl={2} lg={3} md={4} sm={6} xs={12}>
-            <Note />
-          </Col>
-          <Col xl={2} lg={3} md={4} sm={6} xs={12}>
-            <Note />
-          </Col>
-          <Col xl={2} lg={3} md={4} sm={6} xs={12}>
-            <Note />
-          </Col>
-          <Col xl={2} lg={3} md={4} sm={6} xs={12}>
-            <Note />
-          </Col>
-          <Col xl={2} lg={3} md={4} sm={6} xs={12}>
-            <Note />
-          </Col> */}
-
           {this.state.allNotes}
         </div>
       </div>
