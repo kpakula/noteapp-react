@@ -3,8 +3,9 @@ import { Col, Button } from "react-bootstrap";
 import "./HomeView.css";
 import Note from "./notes/Note";
 import axios from "axios";
+import { Link, withRouter, Redirect } from "react-router-dom";
 
-export default class HomeView extends Component {
+class HomeView extends Component {
   state = {
     allNotes: []
   };
@@ -37,7 +38,9 @@ export default class HomeView extends Component {
     return (
       <div>
         <div>
-            <Button className="btn btn-secondary mt-5" >Add new</Button>
+            <Link to="/notes/add">
+                <Button className="btn btn-secondary mt-5" >Add note +</Button>
+            </Link>
         </div>
         <div className="card-deck justify-content-center mt-5" >
           {this.state.allNotes}
@@ -46,3 +49,5 @@ export default class HomeView extends Component {
     );
   }
 }
+
+export default withRouter(HomeView)
