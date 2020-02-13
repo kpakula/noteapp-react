@@ -1,14 +1,35 @@
 import React, { Component } from "react";
+import axios from "axios";
 import { Col, Row } from "react-bootstrap/";
 import { Link, withRouter, Redirect } from "react-router-dom";
-import axios from "axios";
 
-export default class addNote extends Component {
+export default class UpdateNote extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   state = {
-    text: "Default text",
+    text: "",
     title: "",
     isValid: false
   };
+
+  componentDidMount() {
+    const id = window.location.pathname.split("/")[2];
+    axios
+      .get(`http://localhost:8080/notes/${id}`)
+      .then(res => {
+        console.log(res.data);
+        this.setState({
+          text: res.data.text,
+          title: res.data.title,
+          id: id
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
 
   handleTitleInput = event => {
     this.setState({ title: event.target.value });
@@ -30,9 +51,9 @@ export default class addNote extends Component {
       .then(res => {
         if (res.data) {
           this.setState({ isValid: true });
-          console.log("Added")
+          console.log("Updated");
         } else {
-            console.log("Can't add")
+          console.log("Can't update");
         }
       })
       .catch(err => {
@@ -57,7 +78,7 @@ export default class addNote extends Component {
               />
             </div>
             <div className="form-group">
-              <label for="exampleFormControlTextarea1">Text</label>
+              <label htmlFor="exampleFormControlTextarea1">Text</label>
               <textarea
                 className="form-control"
                 id="exampleFormControlTextarea1"
@@ -68,7 +89,7 @@ export default class addNote extends Component {
             </div>
 
             <button type="submit" className="btn btn-secondary w-50 mt-2">
-              Add
+              Update
             </button>
           </form>
 

@@ -16,6 +16,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Container } from "react-bootstrap";
 import HomeView from "./components/HomeView/HomeView";
 import AddNote from "./components/HomeView/notes/AddNote";
+import UpdateNote from "./components/HomeView/notes/UpdateNote";
 
 function App(props) {
   return (
@@ -36,6 +37,7 @@ function App(props) {
           </Route>
           <Route path="/users/:id" component={specificUser}></Route>
           <Route path="/notes/add"><AddNote/></Route>
+          <Route path="/notes/:id"><UpdateNote/></Route>
           <Route path="/home"><HomeView/></Route>
           <Route component={NoMatch}></Route>
         </Switch>
