@@ -1,19 +1,38 @@
 import React from "react";
+import axios from "axios";
 
-export default function Note() {
+export default function Note(props) {
+  const deleteClickHandler = (event) => {
+    event.preventDefault();
+    console.log("Kliknieto delete")
+    console.log(props.noteData.id)
+    axios.delete(`http://localhost:8080/notes/${props.noteData.id}`)
+    .then(res => {
+        console.log("Usunieto")
+        props.updateAllNotes(props.noteData.id)
+    })
+    .catch(err => {
+        console.log("Error")
+    })
+  }
+
+  const handleOnClick = (event) => {
+    event.preventDefault();
+    console.log("Kliknieto body")
+  }
+
   return (
-    <div class="card text-white bg-warning mb-3 customCard mx-auto text-secondary">
+    <div className="card text-white bg-warning mb-3 customCard mx-auto text-secondary">
       <div className="note-header">
-        <span className="note-close">
+        <span className="note-close" onClick={deleteClickHandler}>
           <i className="fas fa-times"></i>
         </span>
       </div>
-      <div class="card-header">Header</div>
-      <div class="card-body">
-        <h5 class="card-title">Warning card title</h5>
-        <p class="card-text">
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
+      <div className="card-header">Note {props.noteData.id}</div>
+      <div className="card-body" onClick={handleOnClick}>
+        <h5 className="card-title">{props.noteData.title}</h5>
+        <p className="card-text">
+          {props.noteData.text}
         </p>
       </div>
     </div>
