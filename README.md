@@ -20,12 +20,10 @@ npm start
 ```
 
 
-<!-- ## Usage
-<p align="center"><img class="card-img-top" src="./presentation/I.gif" alt="presentation gif 1" width="550px" height="550px">
-<img class="card-img-top" src="./presentation/II.gif" alt="presentation gif 1" width="750px" height="400px">
-<img class="card-img-top" src="./presentation/III.gif" alt="presentation gif 1" width="750px" height="400px">
-<img class="card-img-top" src="./presentation/IV.gif" alt="presentation gif 1" width="750px" height="400px">
-</p> -->
+## Usage
+<p align="center"><img class="card-img-top" src="./presentation/I.gif" alt="presentation gif 1" width="850px" height="550px">
+<img class="card-img-top" src="./presentation/II.gif" alt="presentation gif 1" width="850px" height="400px">
+</p>
 
 
 
