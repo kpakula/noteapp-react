@@ -1,63 +1,81 @@
 import './HomeView.css';
 
 import axios from 'axios';
-import React, { Component } from 'react';
-import { Col } from 'react-bootstrap';
+import React, { Component, useEffect, useState } from 'react';
 import { withRouter } from 'react-router-dom';
 
 import AddNotePopup from './add/AddNotePopup';
-import Note from './notes/Note';
+import Notes from './notes/Notes';
 
-class HomeView extends Component {
-  state = {
-    allNotes: []
+function HomeView() {
+  const [allNotes, setAllNotes] = useState([]);
+
+  const addNote = note => {
+    const notes = [...allNotes, note];
+    setAllNotes(notes);
   };
 
-  updateAllNotes = note => {
-    var notes = [...this.state.allNotes];
+  const updateAllNotes = noteId => {
+    const notes = [...allNotes];
+
     const without = notes.filter(n => {
-      return parseInt(n.key) !== note;
+      return n.id !== noteId;
     });
-    this.setState({ allNotes: without });
+    setAllNotes(without);
   };
 
-  componentDidMount() {
+  useEffect(() => {
     axios
       .get(`http://localhost:8080/notes/my/${localStorage.getItem("login")}`)
       .then(res => {
-        const items = res.data.map(note => (
-          <Col xl={2} lg={3} md={4} sm={6} xs={12} key={note.id}>
-            <Note noteData={note} updateAllNotes={this.updateAllNotes} />
-          </Col>
-        ));
-
-        this.setState({ allNotes: items });
+        setAllNotes(res.data);
       })
       .catch(err => {
         console.log(err);
       });
-  }
+  }, []);
 
-  render() {
-    return (
-      <div>
-        {/* <div>
-          <Link to="/notes/add">
-            <Button className="btn btn-secondary mt-5">Add note +</Button>
-          </Link>
-        </div> */}
-
-
-
-
-        <div className="card-deck justify-content-center mt-5">
-          {this.state.allNotes}
-        </div>
-
-        {<AddNotePopup />}
+  return (
+    <div>
+      <div className="card-deck justify-content-center mt-5">
+        <AddNotePopup addNote={addNote}/>
+        <Notes allNotes={allNotes} updateAllNotes={updateAllNotes}/>
       </div>
-    );
-  }
+    </div>
+  );
 }
+
+// class HomeView extends Component {
+//   state = {
+//     allNotes: []
+//   };
+
+//   componentDidMount() {
+//     axios
+//       .get(`http://localhost:8080/notes/my/${localStorage.getItem("login")}`)
+//       .then(res => {
+//         const items = res.data.map(note => (
+//           <Col xl={2} lg={3} md={4} sm={6} xs={12} key={note.id}>
+//             <Note noteData={note} updateAllNotes={this.updateAllNotes} />
+//           </Col>
+//         ));
+
+//         this.setState({ allNotes: items });
+//         console.log(items)
+//       })
+//       .catch(err => {
+//         console.log(err);
+//       });
+//   }
+
+//   render() {
+//     return (
+//       <div>
+
+//         {<AddNotePopup addNote={this.addNote} />}
+//       </div>
+//     );
+//   }
+// }
 
 export default withRouter(HomeView);

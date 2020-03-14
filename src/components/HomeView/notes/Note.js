@@ -13,10 +13,6 @@ export default function Note(props) {
     })
   }
 
-  // const handleOnClick = (event) => {
-  //   event.preventDefault();
-  // }
-
   return (
     <div className="card text-white bg-warning mb-3 customCard mx-auto text-secondary">
       <div className="note-header">

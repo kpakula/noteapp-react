@@ -4,7 +4,7 @@ import axios from 'axios';
 import React, { Component, useState } from 'react';
 import { Col, Row } from 'react-bootstrap/';
 
-function AddNote({ hidePopup }) {
+function AddNote({ hidePopup, addNote }) {
   const [text, setText] = useState("");
   const [title, setTitle] = useState("");
 
@@ -26,7 +26,16 @@ function AddNote({ hidePopup }) {
         text: text
       })
       .then(res => {
+
         hidePopup();
+
+        const note = {
+          id: res.data.id,
+          title: res.data.title,
+          text: res.data.text
+        }
+        
+        addNote(note);
       })
       .catch(err => {
         console.log(err);

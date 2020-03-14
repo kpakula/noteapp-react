@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Button } from 'react-bootstrap';
 import AddNote from "../notes/AddNote";
 import './AddNotePopup.css'
-function Popup() {
+function Popup({ addNote }) {
   const [isActive, setActive] = useState(false);
 
   const showPopup = () => {
@@ -31,7 +31,7 @@ function Popup() {
           </button>
         </div>
         <div className="custom-modal-body">
-          {<AddNote hidePopup={hidePopup}/>}
+          {<AddNote hidePopup={hidePopup} addNote={addNote}/>}
         </div>
       </div>
       <div
