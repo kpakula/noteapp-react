@@ -1,12 +1,12 @@
-import './HomeView.css';
+import "./HomeView.css";
 
-import axios from 'axios';
-import React, { Component } from 'react';
-import { Button, Col } from 'react-bootstrap';
-import { Link, withRouter } from 'react-router-dom';
+import axios from "axios";
+import React, { Component } from "react";
+import { Button, Col } from "react-bootstrap";
+import { Link, withRouter } from "react-router-dom";
 
-import Note from './notes/Note';
-import Popup from './Popup';
+import Note from "./notes/Note";
+import AddNotePopup from "./add/AddNotePopup";
 
 class HomeView extends Component {
   state = {
@@ -39,26 +39,21 @@ class HomeView extends Component {
       });
   }
 
-
-
   render() {
     return (
       <div>
-        <div>
+        {/* <div>
           <Link to="/notes/add">
             <Button className="btn btn-secondary mt-5">Add note +</Button>
           </Link>
-        </div>
-        
+        </div> */}
 
-        {/* Test component */}
 
         <div className="card-deck justify-content-center mt-5">
           {this.state.allNotes}
         </div>
 
-        {<Popup/>}
-
+        {<AddNotePopup />}
       </div>
     );
   }

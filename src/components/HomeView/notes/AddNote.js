@@ -3,9 +3,11 @@ import React, { Component } from 'react';
 import { Col, Row } from 'react-bootstrap/';
 import { Redirect } from 'react-router-dom';
 
+import './AddNote.css'
+
 export default class addNote extends Component {
   state = {
-    text: "Default text",
+    text: "",
     title: "",
     isValid: false
   };
@@ -61,6 +63,7 @@ export default class addNote extends Component {
                 rows="3"
                 value={this.state.text}
                 onChange={this.handleText}
+                placeholder="Enter text"
               ></textarea>
             </div>
 
