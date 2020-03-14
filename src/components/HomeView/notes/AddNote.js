@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import { Col, Row } from "react-bootstrap/";
-import { Link, withRouter, Redirect } from "react-router-dom";
-import axios from "axios";
+import axios from 'axios';
+import React, { Component } from 'react';
+import { Col, Row } from 'react-bootstrap/';
+import { Redirect } from 'react-router-dom';
 
 export default class addNote extends Component {
   state = {

@@ -57,7 +57,7 @@ class HomeView extends Component {
         
 
         {/* Test component */}
-        <Button data-modal-target="#custom-modal" className="btn" onClick={this.showPopup}>
+        <Button className="btn" onClick={this.showPopup}>
           Test
         </Button>
         <div className="card-deck justify-content-center mt-5">
@@ -68,9 +68,9 @@ class HomeView extends Component {
         <div className="custom-modal" id="custom-modal">
           <div className="custom-modal-header">
             <div className="custom-modal-title">Example Modal</div>
-            <button data-close-button className="custom-modal-close-button">&times;</button>
+            <button className="custom-modal-close-button" onClick={this.hidePopup}>&times;</button>
           </div>
-          <div class="custom-modal-body">
+          <div className="custom-modal-body">
             Laborum non ipsum do eu nisi duis. Dolor in mollit commodo commodo.
             Dolore esse non laborum ut nisi ea reprehenderit irure dolor.
             Nostrud adipisicing fugiat quis eiusmod fugiat do. Exercitation nisi
@@ -88,7 +88,7 @@ class HomeView extends Component {
 
           </div>
         </div>
-        <div class="" id="custom-overlay"></div>
+        <div className="" id="custom-overlay"></div>
 
       </div>
     );
