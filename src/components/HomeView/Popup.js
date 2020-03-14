@@ -1,20 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from 'react-bootstrap';
 
 function Popup() {
+    const [isActive, setActive] = useState(false);
+
     const showPopup = () => {
+        setActive(!isActive);
         console.log("Show");
       };
     
       const hidePopup = () => {
+        setActive(!isActive);
         console.log("Hide")
+      }
+
+      const clickOuterOverlay = () => {
+          setActive(!isActive);
       }
   return (
     <div>
       <Button className="btn" onClick={showPopup}>
         Test
       </Button>
-      <div className="custom-modal" id="custom-modal">
+      <div className={isActive ? "custom-modal active" : "custom-modal"} id="custom-modal">
         <div className="custom-modal-header">
           <div className="custom-modal-title">Example Modal</div>
           <button
@@ -41,7 +49,7 @@ function Popup() {
           Fugiat dolore nisi adipisicing ullamco est eiusmod
         </div>
       </div>
-      <div className="" id="custom-overlay"></div>
+      <div className={isActive ? "active" : null} id="custom-overlay" onClick={clickOuterOverlay}></div>
     </div>
   );
 }
