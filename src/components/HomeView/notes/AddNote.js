@@ -30,9 +30,6 @@ export default class addNote extends Component {
       .then(res => {
         if (res.data) {
           this.setState({ isValid: true });
-          console.log("Added")
-        } else {
-            console.log("Can't add")
         }
       })
       .catch(err => {

@@ -51,9 +51,6 @@ export default class UpdateNote extends Component {
       .then(res => {
         if (res.data) {
           this.setState({ isValid: true });
-          console.log("Updated");
-        } else {
-          console.log("Can't update");
         }
       })
       .catch(err => {

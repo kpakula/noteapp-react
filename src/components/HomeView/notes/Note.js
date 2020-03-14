@@ -4,22 +4,18 @@ import axios from "axios";
 export default function Note(props) {
   const deleteClickHandler = (event) => {
     event.preventDefault();
-    console.log("Kliknieto delete")
-    console.log(props.noteData.id)
     axios.delete(`http://localhost:8080/notes/${props.noteData.id}`)
     .then(res => {
-        console.log("Usunieto")
         props.updateAllNotes(props.noteData.id)
     })
     .catch(err => {
-        console.log("Error")
+        console.log(err)
     })
   }
 
-  const handleOnClick = (event) => {
-    event.preventDefault();
-    console.log("Kliknieto body")
-  }
+  // const handleOnClick = (event) => {
+  //   event.preventDefault();
+  // }
 
   return (
     <div className="card text-white bg-warning mb-3 customCard mx-auto text-secondary">
@@ -29,7 +25,7 @@ export default function Note(props) {
         </span>
       </div>
       <div className="card-header">Note {props.noteData.id}</div>
-      <div className="card-body" onClick={handleOnClick}>
+      <div className="card-body" >
         <h5 className="card-title">{props.noteData.title}</h5>
         <p className="card-text">
           {props.noteData.text}

@@ -23,10 +23,7 @@ class Register extends Component {
       })
       .then(res => {
         if (res.data) {
-          console.log("Created");
           this.setState({ isValid: true });
-        } else {
-          console.log("Not created");
         }
       })
       .catch(err => {
