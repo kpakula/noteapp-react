@@ -7,21 +7,18 @@ function Popup() {
 
   const showPopup = () => {
     setActive(!isActive);
-    console.log("Show");
   };
 
   const hidePopup = () => {
     setActive(!isActive);
-    console.log("Hide");
   };
 
-  const clickOuterOverlay = () => {
-    setActive(!isActive);
-  };
+
+
   return (
-    <div class>
-      <Button className="btn" onClick={showPopup}>
-        Test
+    <div>
+      <Button className="btn btn-secondary mt-4 top" onClick={showPopup}>
+        Add note +
       </Button>
       <div
         className={isActive ? "custom-modal active" : "custom-modal"}
@@ -34,13 +31,13 @@ function Popup() {
           </button>
         </div>
         <div className="custom-modal-body">
-          {<AddNote/>}
+          {<AddNote hidePopup={hidePopup}/>}
         </div>
       </div>
       <div
         className={isActive ? "active" : null}
         id="custom-overlay"
-        onClick={clickOuterOverlay}
+        onClick={hidePopup}
       ></div>
     </div>
   );

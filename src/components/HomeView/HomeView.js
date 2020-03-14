@@ -1,12 +1,12 @@
-import "./HomeView.css";
+import './HomeView.css';
 
-import axios from "axios";
-import React, { Component } from "react";
-import { Button, Col } from "react-bootstrap";
-import { Link, withRouter } from "react-router-dom";
+import axios from 'axios';
+import React, { Component } from 'react';
+import { Col } from 'react-bootstrap';
+import { withRouter } from 'react-router-dom';
 
-import Note from "./notes/Note";
-import AddNotePopup from "./add/AddNotePopup";
+import AddNotePopup from './add/AddNotePopup';
+import Note from './notes/Note';
 
 class HomeView extends Component {
   state = {
@@ -18,7 +18,6 @@ class HomeView extends Component {
     const without = notes.filter(n => {
       return parseInt(n.key) !== note;
     });
-
     this.setState({ allNotes: without });
   };
 
@@ -47,6 +46,8 @@ class HomeView extends Component {
             <Button className="btn btn-secondary mt-5">Add note +</Button>
           </Link>
         </div> */}
+
+
 
 
         <div className="card-deck justify-content-center mt-5">
