@@ -12,8 +12,11 @@ class HomeView extends Component {
 
   updateAllNotes = (note) => {
       var notes = [...this.state.allNotes];
-      notes.splice(note.id, 1);
-      this.setState({allNotes: notes})
+      const without = notes.filter(n => {
+        return parseInt(n.key) !== note
+      })
+
+      this.setState({allNotes: without})
   }
 
 
