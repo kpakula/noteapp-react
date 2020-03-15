@@ -6,7 +6,6 @@ import {
   Route,
   Redirect
 } from "react-router-dom";
-import AllUser from "./components/allUser/AllUser";
 import NoMatch from "./components/noMatch/NoMatch";
 import specificUser from "./components/specificUser/specificUser";
 import Login from "./components/login/Login";
@@ -31,9 +30,6 @@ function App(props) {
           </Route>
           <Route exact path="/signup">
             <Register />
-          </Route>
-          <Route exact path="/users">
-            <AllUser />
           </Route>
           <Route path="/users/:id" component={specificUser}></Route>
           <Route path="/notes/add"><AddNote/></Route>
