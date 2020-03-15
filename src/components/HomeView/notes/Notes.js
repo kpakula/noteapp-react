@@ -1,6 +1,7 @@
-import React, { useState } from "react";
-import { Col } from "react-bootstrap";
-import Note from "./Note";
+import React from 'react';
+import { Col } from 'react-bootstrap';
+
+import Note from './Note';
 
 function Notes({ allNotes, updateAllNotes }) {
 

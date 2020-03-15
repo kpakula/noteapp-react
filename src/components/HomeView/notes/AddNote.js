@@ -1,8 +1,8 @@
-import './AddNote.css';
+import "./AddNote.css";
 
-import axios from 'axios';
-import React, { Component, useState } from 'react';
-import { Col, Row } from 'react-bootstrap/';
+import axios from "axios";
+import React, { useState } from "react";
+import { Col, Row } from "react-bootstrap/";
 
 function AddNote({ hidePopup, addNote }) {
   const [text, setText] = useState("");
@@ -26,15 +26,14 @@ function AddNote({ hidePopup, addNote }) {
         text: text
       })
       .then(res => {
-
         hidePopup();
 
         const note = {
           id: res.data.id,
           title: res.data.title,
           text: res.data.text
-        }
-        
+        };
+
         addNote(note);
       })
       .catch(err => {
@@ -73,7 +72,6 @@ function AddNote({ hidePopup, addNote }) {
             Add
           </button>
         </form>
-
       </Col>
     </Row>
   );

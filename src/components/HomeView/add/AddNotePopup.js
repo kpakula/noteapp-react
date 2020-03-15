@@ -16,8 +16,8 @@ function Popup({ addNote }) {
 
 
   return (
-    <div>
-      <Button className="btn btn-secondary mt-4 top" onClick={showPopup}>
+    <div className="outer">
+      <Button className="btn btn-secondary  top" onClick={showPopup}>
         Add note +
       </Button>
       <div
