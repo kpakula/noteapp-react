@@ -7,11 +7,11 @@
 }
 
 .customCard:hover {
-    height: 270px;
-    z-index: 150;
     cursor: pointer;
-    background: black !important;
+    background-color: black !important;
 }
+
+
 
 .note-close {
     position: absolute;
@@ -19,8 +19,5 @@
     right: 11px;
 }
 
-/* *, *::after, *::before {
-    box-sizing: border-box;
-} */
 
 
