@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button } from 'react-bootstrap';
-import AddNote from "../notes/AddNote";
+import AddNote from "../notes/add/AddNote";
 import './AddNotePopup.css'
 function Popup({ addNote }) {
   const [isActive, setActive] = useState(false);

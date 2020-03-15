@@ -4,7 +4,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { withRouter } from 'react-router-dom';
 
-import AddNotePopup from './add/AddNotePopup';
+import AddNotePopup from './popup/AddNotePopup';
 import Notes from './notes/Notes';
 
 function HomeView() {

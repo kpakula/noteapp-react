@@ -14,8 +14,8 @@ import Register from "./components/register/Register";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container } from "react-bootstrap";
 import HomeView from "./components/HomeView/HomeView";
-import AddNote from "./components/HomeView/notes/AddNote";
-import UpdateNote from "./components/HomeView/notes/UpdateNote";
+import AddNote from "./components/HomeView/notes/add/AddNote";
+import UpdateNote from "./components/HomeView/notes/update/UpdateNote";
 
 function App(props) {
   return (
