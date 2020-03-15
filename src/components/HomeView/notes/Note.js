@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-
+import './Note.css';
 export default function Note(props) {
   const deleteClickHandler = (event) => {
     event.preventDefault();
@@ -14,7 +14,7 @@ export default function Note(props) {
   }
 
   return (
-    <div className="card text-white bg-warning mb-3 customCard mx-auto text-secondary">
+    <div className="card mb-3 customCard" style={{backgroundColor: props.noteData.color}}>
       <div className="note-header">
         <span className="note-close" onClick={deleteClickHandler}>
           <i className="fas fa-times"></i>
@@ -25,6 +25,9 @@ export default function Note(props) {
         <h5 className="card-title">{props.noteData.title}</h5>
         <p className="card-text">
           {props.noteData.text}
+        </p>
+        <p className="card-text">
+          {props.noteData.color}
         </p>
       </div>
     </div>
