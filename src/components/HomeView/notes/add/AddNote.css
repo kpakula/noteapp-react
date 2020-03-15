@@ -1,6 +1,7 @@
 .leftSide {
 
-    color: black;
+    /* color: black;
+ */
 
 }
 
@@ -8,4 +9,11 @@
     display: flex;
     justify-content: center;
     text-align: center;
+}
+
+.form-control {
+    /* background-color: black; */
+    border-radius: 5px;
+    max-height: 80px;
+    resize: none;
 }

@@ -59,13 +59,13 @@ function AddNote({ hidePopup, addNote }) {
             <CirclePicker color={color} onChangeComplete={handleColor} />
           </div>
         </div>
-        {/* <div className="col-12">{color}</div> */}
+
         <div className="col-12 mt-4">
           <input
             type="text"
             className="form-control mb-0"
             id="exampleInputTitle"
-            placeholder="Enter title"
+            placeholder="Title"
             value={title}
             onChange={handleTitleInput}
           />
@@ -77,7 +77,7 @@ function AddNote({ hidePopup, addNote }) {
             rows="3"
             value={text}
             onChange={handleText}
-            placeholder="Enter text"
+            placeholder="Text"
           ></textarea>
         </div>
         <button type="submit" className="btn btn-secondary w-50 mt-4">
