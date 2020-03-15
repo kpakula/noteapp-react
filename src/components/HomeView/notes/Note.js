@@ -13,6 +13,7 @@ export default function Note(props) {
     })
   }
 
+
   return (
     <div className="card mb-3 customCard" style={{backgroundColor: props.noteData.color}}>
       <div className="note-header">
