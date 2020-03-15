@@ -1,0 +1,11 @@
+.wrong-container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrong-info {
+    color: white;
+    font-size: 5rem;
+}
