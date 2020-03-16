@@ -5,11 +5,27 @@ import sha256 from 'js-sha256';
 import React, { useState } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { Link, Redirect, withRouter } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function Register() {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
   const [isValid, setValid] = useState(false);
+
+  const successNotify = () => toast.success("Success!", {
+      position: toast.POSITION.BOTTOM_CENTER,
+      onOpen: () => console.log("open"),
+      onClose: () => setValid(true),
+      autoClose: 3000
+    });
+
+  const errorNotify = () => {
+    toast.error("Already exist. Try again!", {
+      position: toast.POSITION.BOTTOM_CENTER
+    });
+  }
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -21,7 +37,9 @@ function Register() {
       })
       .then(res => {
         if (res.data) {
-          setValid(true);
+          successNotify();
+        } else {
+          errorNotify();
         }
       })
       .catch(err => {
@@ -76,6 +94,7 @@ function Register() {
         </form>
 
         {isValid && <Redirect to="/signin" />}
+        <ToastContainer/>
       </Col>
     </Row>
   );
